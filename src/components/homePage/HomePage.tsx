@@ -6,11 +6,13 @@ import { fetchUsers as fetchData } from "../../app/slices/usersSlice";
 import { User } from "../../types/User";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { HomePageDiv } from "./styled/homePage.styled";
+import Users from "../users/Users";
 
-const LandingPage: React.FC = () => {
+const HomePage: React.FC = () => {
     const dispatch = useDispatch();
 
-    const users = useSelector((state: RootState) => state.users.allUsers);
+    const users = useSelector((state: RootState) => state.users.allUsers).slice(0, 8);
 
     const setUsers = (user: User) => {
         dispatch(fetchData(user))
@@ -21,10 +23,10 @@ const LandingPage: React.FC = () => {
     }, [])
 
     return (
-        <div>
-            <h1 onClick={() => console.log(users)}>Landing Page</h1>
-        </div>
+        <HomePageDiv>
+            <Users users={users} />
+        </HomePageDiv>
     )
 }
 
-export default LandingPage;
+export default HomePage;

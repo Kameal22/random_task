@@ -1,8 +1,20 @@
-const User: React.FC = () => {
-    return (
-        <div>
+import { UserDiv, UserEmail, UserName, UserPhone, UserWebsite } from "./styled/user.styled"
 
-        </div>
+interface Props {
+    name: string;
+    email: string;
+    phone: string;
+    website: string;
+}
+
+const User: React.FC<Props> = ({ name, phone, email, website }) => {
+    return (
+        <UserDiv>
+            <UserName>{name}</UserName>
+            <UserEmail>{email}</UserEmail>
+            <UserPhone>Tn: {phone}</UserPhone>
+            <UserWebsite>Website: {website}</UserWebsite>
+        </UserDiv>
     )
 }
 
