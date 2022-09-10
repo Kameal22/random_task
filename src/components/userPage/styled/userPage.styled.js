@@ -28,6 +28,9 @@ export const UserDiv = styled.div`
   border-radius: 10px;
   padding-top: 2vh;
   padding-bottom: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const UserName = styled.h1`

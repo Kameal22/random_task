@@ -8,13 +8,16 @@ interface Props {
 
 const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
     const [, , postTitle, setPostTitle, titleError, handleTitleError, resetError] = useInputState("");
-    const [postContent, setPostContent, , , , , resetPost] = useInputState("");
+    const [postContent, setPostContent, , , contentError, handleContentError] = useInputState("");
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        if (!titleError && postContent) {
-            console.log("essa")
+        if (!postContent || !postTitle) {
+            handleContentError("Please provide title and content")
+        } else {
+            console.log(postTitle)
+            console.log(postContent)
         }
     }
     return (
@@ -29,6 +32,7 @@ const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
                 <PostTitleDiv>
                     <p>Enter title</p>
                     <input
+                        value={postTitle}
                         placeholder="Post title"
                         onChange={setPostTitle}
                         type="text"
@@ -39,12 +43,13 @@ const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
 
                 <PostContentsDiv>
                     <p>Enter post</p>
-                    <textarea placeholder="Enter your post" />
+                    <textarea value={postContent} onChange={setPostContent} placeholder="Enter your post" />
+                    {contentError && <PostError>{contentError}</PostError>}
                 </PostContentsDiv>
 
                 <ButtonsDiv>
                     <AddPostButton type="submit">Add post</AddPostButton>
-                    <CancelButton onClick={setPostCreating}>Cancel</CancelButton>
+                    <CancelButton type="reset" onClick={setPostCreating}>Cancel</CancelButton>
                 </ButtonsDiv>
             </form>
         </CreatePostDiv>

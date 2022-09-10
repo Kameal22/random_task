@@ -5,7 +5,7 @@ const useInputState = (initialValue = "") => {
     const [limitedValue, setLimitedValue] = useState(initialValue);
     const [error, setError] = useState(initialValue);
 
-    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.FormEvent<HTMLTextAreaElement>) => {
         setValue(e.currentTarget.value);
     };
 

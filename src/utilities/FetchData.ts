@@ -8,3 +8,9 @@ export const fetchUsers = async (URL: string, data: string, setUsers: (user: Use
         setUsers(user)
     })
 };
+
+export const fetchPosts = async (URL: string, data: string, userId: string) => {
+    const response = await axios.get(`${URL}${data}/${userId}/posts`);
+
+    console.log(response.data)
+};

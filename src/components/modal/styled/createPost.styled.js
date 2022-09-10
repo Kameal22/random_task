@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CreatePostDiv = styled.div`
   width: 45%;
-  height: 55%;
+  height: 60%;
   position: absolute;
   left: 50%;
   top: 35%;
@@ -103,4 +103,6 @@ export const CancelButton = styled.button`
 export const PostError = styled.p`
   color: red;
   font-size: 0.8em;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 `;
