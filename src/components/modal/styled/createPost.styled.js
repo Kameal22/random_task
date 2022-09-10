@@ -99,3 +99,8 @@ export const CancelButton = styled.button`
   font-weight: bold;
   border-radius: 10px;
 `;
+
+export const PostError = styled.p`
+  color: red;
+  font-size: 0.8em;
+`;

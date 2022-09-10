@@ -1,5 +1,5 @@
 import useInputState from "../../hooks/useInputState";
-import { AddPostButton, ButtonsDiv, CancelButton, CreatePostDiv, PostContentsDiv, PostTitleDiv } from "./styled/createPost.styled"
+import { AddPostButton, ButtonsDiv, CancelButton, CreatePostDiv, PostContentsDiv, PostError, PostTitleDiv } from "./styled/createPost.styled"
 
 interface Props {
     forwardRef: React.RefObject<HTMLDivElement>;
@@ -8,10 +8,14 @@ interface Props {
 
 const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
     const [, , postTitle, setPostTitle, titleError, handleTitleError, resetError] = useInputState("");
-    const [postContent, setPostContent, , , postError, handlePostError, resetPost] = useInputState("");
+    const [postContent, setPostContent, , , , , resetPost] = useInputState("");
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        if (!titleError && postContent) {
+            console.log("essa")
+        }
     }
     return (
         <CreatePostDiv ref={forwardRef}>
@@ -30,6 +34,7 @@ const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
                         type="text"
                         name="title"
                     />
+                    {titleError && <PostError>{titleError}</PostError>}
                 </PostTitleDiv>
 
                 <PostContentsDiv>
@@ -38,7 +43,7 @@ const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
                 </PostContentsDiv>
 
                 <ButtonsDiv>
-                    <AddPostButton>Add post</AddPostButton>
+                    <AddPostButton type="submit">Add post</AddPostButton>
                     <CancelButton onClick={setPostCreating}>Cancel</CancelButton>
                 </ButtonsDiv>
             </form>

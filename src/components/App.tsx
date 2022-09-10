@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themes/theme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import Navbar from "./nav/Navbar";
+import Post from "./posts/Post";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("light", "light");
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/users/:id" element={<UserPage />} />
+            <Route path="/users/:id/:post_id" element={<Post />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
