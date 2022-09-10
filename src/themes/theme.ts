@@ -5,9 +5,9 @@ export const lightTheme = {
       modal: '#faedcd'
     },
     textColor: {
-      user: '#495057',
-      button: '#495057',
-      modal: '#495057'
+      user: 'black',
+      button: 'black',
+      modal: 'black'
     },
     border: {
         user: '2px solid black',

@@ -1,12 +1,14 @@
 import useInputState from "../../hooks/useInputState";
-import { CreatePostDiv, PostContentsDiv, PostTitleDiv } from "./styled/createPost.styled"
+import { AddPostButton, ButtonsDiv, CancelButton, CreatePostDiv, PostContentsDiv, PostTitleDiv } from "./styled/createPost.styled"
 
 interface Props {
     forwardRef: React.RefObject<HTMLDivElement>;
+    setPostCreating: () => void
 }
 
-const CreatePost: React.FC<Props> = ({ forwardRef }) => {
-    const [, , postTitle, setPostTitle, error, handleError, reset] = useInputState("");
+const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
+    const [, , postTitle, setPostTitle, titleError, handleTitleError, resetError] = useInputState("");
+    const [postContent, setPostContent, , , postError, handlePostError, resetPost] = useInputState("");
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -34,6 +36,11 @@ const CreatePost: React.FC<Props> = ({ forwardRef }) => {
                     <p>Enter post</p>
                     <textarea placeholder="Enter your post" />
                 </PostContentsDiv>
+
+                <ButtonsDiv>
+                    <AddPostButton>Add post</AddPostButton>
+                    <CancelButton onClick={setPostCreating}>Cancel</CancelButton>
+                </ButtonsDiv>
             </form>
         </CreatePostDiv>
     )

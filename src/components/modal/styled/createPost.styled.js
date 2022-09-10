@@ -38,6 +38,7 @@ export const PostTitleDiv = styled.div`
     border: ${({ theme }) => theme.border.modal};
     display: block;
     margin: 2vh auto 0 auto;
+    width: 45%;
     color: ${({ theme }) => theme.textColor.modal};
   }
 `;
@@ -64,4 +65,37 @@ export const PostContentsDiv = styled.div`
       text-align: center;
     }
   }
+`;
+
+export const ButtonsDiv = styled.div`
+  width: 80%;
+  margin: 2vh auto 0 auto;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+
+    width: 22%;
+  }
+`;
+
+export const AddPostButton = styled.button`
+  background-color: green;
+  padding: 10px;
+  color: ${({ theme }) => theme.textColor.button};
+  border: ${({ theme }) => theme.border.button};
+  font-weight: bold;
+  border-radius: 10px;
+`;
+
+export const CancelButton = styled.button`
+  background-color: red;
+  padding: 10px;
+  color: ${({ theme }) => theme.textColor.button};
+  border: ${({ theme }) => theme.border.button};
+  font-weight: bold;
+  border-radius: 10px;
 `;

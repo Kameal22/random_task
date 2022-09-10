@@ -31,7 +31,7 @@ const UserPage: React.FC = () => {
             </UserDiv>
             <AddPostButton onClick={setPostCreating}>Add post</AddPostButton>
 
-            {postCreating && <CreatePost forwardRef={createPostRef} />}
+            {postCreating && <CreatePost setPostCreating={setPostCreating} forwardRef={createPostRef} />}
         </UserPageDiv>
 
     )
