@@ -1,4 +1,4 @@
-import { UserDiv, UserEmail, UserName, UserPhone, UserWebsite } from "./styled/user.styled"
+import { UserDiv, UserName, UserData } from "./styled/user.styled"
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -16,9 +16,9 @@ const User: React.FC<Props> = ({ name, phone, email, website, id }) => {
         <UserDiv onClick={() => navigate(`/users/${id}`)}>
             <UserName>{name}</UserName>
             <i className="bi bi-person" />
-            <UserEmail>{email}</UserEmail>
-            <UserPhone>Tn: {phone}</UserPhone>
-            <UserWebsite>Website: {website}</UserWebsite>
+            <UserData>{email}</UserData>
+            <UserData><span style={{ fontWeight: "bold" }}>Tn:</span> {phone}</UserData>
+            <UserData><span style={{ fontWeight: "bold" }}>Website:</span> {website}</UserData>
         </UserDiv>
     )
 }

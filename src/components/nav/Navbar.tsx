@@ -9,7 +9,7 @@ interface Props {
 const Navbar: React.FC<Props> = ({ toggleDarkMode, theme }) => {
     return (
         <NavbarDiv>
-            {theme === "light" ? <i onClick={toggleDarkMode} className="bi bi-moon" /> : <i onClick={toggleDarkMode} className="bi bi-moon-fill" />}
+            {theme === "light" ? <i onClick={toggleDarkMode} className="bi bi-moon" /> : <i style={theme === "light" ? { color: "black" } : { color: "ivory" }} onClick={toggleDarkMode} className="bi bi-moon-fill" />}
         </NavbarDiv>
     )
 }

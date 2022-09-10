@@ -6,8 +6,8 @@ export const UserDiv = styled.div`
   padding: 2vh 5% 2vh 5%;
   height: 250px;
   position: relative;
-  background-color: ${({ theme }) => theme.background.smallUser};
-  color: ${({ theme }) => theme.textColor.smallUser};
+  background-color: ${({ theme }) => theme.background.user};
+  color: ${({ theme }) => theme.textColor.user};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,14 +31,6 @@ export const UserName = styled.h3`
   text-align: center;
 `;
 
-export const UserEmail = styled.p`
-  font-size: 0.8em;
-`;
-
-export const UserPhone = styled.p`
-  font-size: 0.8em;
-`;
-
-export const UserWebsite = styled.p`
+export const UserData = styled.p`
   font-size: 0.8em;
 `;
