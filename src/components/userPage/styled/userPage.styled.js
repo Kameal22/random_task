@@ -9,7 +9,7 @@ export const UserPageDiv = styled.div`
 `;
 
 export const UserDiv = styled.div`
-  width: 80%;
+  width: 40%;
   height: 80vh;
   border: ${({ theme }) => theme.border.user};
 `;
