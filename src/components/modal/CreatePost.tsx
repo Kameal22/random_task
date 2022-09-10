@@ -1,13 +1,16 @@
 import useInputState from "../../hooks/useInputState";
 import { AddPostButton, ButtonsDiv, CancelButton, CreatePostDiv, PostContentsDiv, PostError, PostTitleDiv } from "./styled/createPost.styled"
+import { postData } from "../../utilities/PostData";
+import { API_URL } from "../../constants/API_URL";
 
 interface Props {
     forwardRef: React.RefObject<HTMLDivElement>;
     setPostCreating: () => void
+    userId: number | undefined
 }
 
-const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
-    const [, , postTitle, setPostTitle, titleError, handleTitleError, resetError] = useInputState("");
+const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating, userId }) => {
+    const [, , postTitle, setPostTitle, titleError] = useInputState("");
     const [postContent, setPostContent, , , contentError, handleContentError] = useInputState("");
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -16,8 +19,8 @@ const CreatePost: React.FC<Props> = ({ forwardRef, setPostCreating }) => {
         if (!postContent || !postTitle) {
             handleContentError("Please provide title and content")
         } else {
-            console.log(postTitle)
-            console.log(postContent)
+            postData(API_URL, 'posts', postTitle, postContent, userId)
+            setPostCreating()
         }
     }
     return (

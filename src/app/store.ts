@@ -1,11 +1,13 @@
 import { combineReducers,configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import usersReducer from "./slices/usersSlice";
+import postsReducer from "./slices/postSlices";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
   users: usersReducer,
+  posts: postsReducer
 });
 
 const persistConfig = {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Post } from "../types/Post";
 import { User } from "../types/User";
 
 export const fetchUsers = async (URL: string, data: string, setUsers: (user: User) => void) => {
@@ -9,8 +10,8 @@ export const fetchUsers = async (URL: string, data: string, setUsers: (user: Use
     })
 };
 
-export const fetchPosts = async (URL: string, data: string, userId: string) => {
-    const response = await axios.get(`${URL}${data}/${userId}/posts`);
+export const fetchPosts = async (URL: string, data: string, setPosts: React.Dispatch<React.SetStateAction<Post[]>>) => {
+    const response = await axios.get(`${URL}${data}`);
 
-    console.log(response.data)
+    setPosts(response.data)
 };

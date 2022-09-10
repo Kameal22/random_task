@@ -1,6 +1,6 @@
 export type Post = {
     body: string;
-    id: number;
+    id: string;
     title: string;
-    userId: number
+    userId: number | undefined
 }

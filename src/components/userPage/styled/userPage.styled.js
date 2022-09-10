@@ -53,3 +53,8 @@ export const AddPostButton = styled.button`
     cursor: pointer;
   }
 `;
+
+export const UserPosts = styled.div`
+  height: 75%;
+  overflow: auto;
+`;

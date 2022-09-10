@@ -7,7 +7,8 @@ export const lightTheme = {
     textColor: {
       user: 'black',
       button: 'black',
-      modal: 'black'
+      modal: 'black',
+      post: 'black'
     },
     border: {
         user: '2px solid black',
@@ -28,7 +29,8 @@ export const darkTheme = {
     textColor: {
       user: 'ivory',
       button: 'ivory',
-      modal: 'ivory'
+      modal: 'ivory',
+      post: 'ivory'
     },
     border: {
         user: '2px solid ivory',

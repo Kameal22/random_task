@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import { AddPostButton, UserDiv, UserName, UserPageDiv } from "./styled/userPage.styled";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { AddPostButton, UserDiv, UserName, UserPageDiv, UserPosts } from "./styled/userPage.styled";
 import { useNavigate } from "react-router-dom";
 import useToggle from "../../hooks/useToggle";
 import CreatePost from "../modal/CreatePost";
 import { useRef, useState, useEffect } from "react";
 import UseClickOutside from "../../hooks/useClickOutside";
-import UserPosts from "./UserPosts";
-import { API_URL } from "../../constants/API_URL";
-import { fetchPosts } from "../../utilities/FetchData";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import { Post } from "../../types/Post";
+import { fetchPosts } from "../../utilities/FetchData";
+import { API_URL } from "../../constants/API_URL";
+import UserPost from "./UserPost";
 
 const UserPage: React.FC = () => {
     const [postCreating, setPostCreating] = useToggle(false);
@@ -20,16 +20,23 @@ const UserPage: React.FC = () => {
 
     const createPostRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (id)
-            fetchPosts(API_URL, 'users', id)
-    }, [])
-
     UseClickOutside(createPostRef, setPostCreating);
+
+    useEffect(() => {
+        fetchPosts(API_URL, 'posts', setPosts)
+    }, [])
 
     const user = useSelector((state: RootState) => state.users.allUsers.find(user => {
         return user.id.toString() === id
     }));
+
+    const userPosts = posts.filter(post => post.userId === user?.id)
+
+    const removePost = (id: string) => {
+        const removed = posts.filter(post => post.id !== id);
+
+        setPosts(removed);
+    }
 
     return (
         <UserPageDiv>
@@ -39,11 +46,15 @@ const UserPage: React.FC = () => {
                     {user?.name}
                 </UserName>
 
-                <UserPosts />
+                <UserPosts>
+                    {userPosts.map(post => (
+                        <UserPost key={post.id} removePost={removePost} post={post} />
+                    ))}
+                </UserPosts>
             </UserDiv>
             <AddPostButton onClick={setPostCreating}>Add post</AddPostButton>
 
-            {postCreating && <CreatePost setPostCreating={setPostCreating} forwardRef={createPostRef} />}
+            {postCreating && <CreatePost userId={user?.id} setPostCreating={setPostCreating} forwardRef={createPostRef} />}
         </UserPageDiv>
 
     )
