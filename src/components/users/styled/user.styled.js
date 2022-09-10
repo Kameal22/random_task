@@ -1,34 +1,44 @@
 import styled from "styled-components";
 
 export const UserDiv = styled.div`
-  border: 1px solid ivory;
+  border-radius: 10px;
   width: 100%;
   padding: 2vh 5% 2vh 5%;
+  height: 250px;
+  position: relative;
+  background-color: ${({ theme }) => theme.background.smallUser};
+  color: ${({ theme }) => theme.textColor.smallUser};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 8px 22px -2px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 8px 22px -2px rgba(66, 68, 90, 1);
+  box-shadow: 0px 8px 22px -2px rgba(66, 68, 90, 1);
 
   &:hover {
     cursor: pointer;
+    border: ${({ theme }) => theme.border.user};
+  }
+
+  i {
+    font-size: 2em;
+    display: block;
+    text-align: center;
   }
 `;
 
 export const UserName = styled.h3`
-  color: ivory;
   text-align: center;
-  margin-bottom: 6vh;
 `;
 
 export const UserEmail = styled.p`
-  color: ivory;
-  font-size: 0.9em;
-  margin-bottom: 1vh;
+  font-size: 0.8em;
 `;
 
 export const UserPhone = styled.p`
-  color: ivory;
-  font-size: 0.9em;
-  margin-bottom: 1vh;
+  font-size: 0.8em;
 `;
 
 export const UserWebsite = styled.p`
-  color: ivory;
-  font-size: 0.9em;
+  font-size: 0.8em;
 `;
