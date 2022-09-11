@@ -15,6 +15,19 @@ export const UserPageDiv = styled.div`
     color: ${({ theme }) => theme.icon.color};
     font-size: 2em;
 
+    @media screen and (max-width: 1150px) {
+      left: 15%;
+    }
+
+    @media screen and (max-width: 999px) {
+      left: 5%;
+    }
+
+    @media screen and (max-width: 699px) {
+      left: 5%;
+      top: 95%;
+    }
+
     &:hover {
       cursor: pointer;
     }
@@ -32,6 +45,23 @@ export const UserDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (max-width: 1150px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 999px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 699px) {
+    width: 95%;
+  }
+
+  h1 {
+    color: ${({ theme }) => theme.textColor.user};
+    text-align: center;
+  }
 `;
 
 export const UserName = styled.h1`
@@ -49,6 +79,21 @@ export const AddPostButton = styled.button`
   border: ${({ theme }) => theme.border.button};
   color: ${({ theme }) => theme.textColor.button};
   border-radius: 10px;
+
+  @media screen and (max-width: 1150px) {
+    left: 88%;
+  }
+
+  @media screen and (max-width: 999px) {
+    left: 94%;
+    width: 10%;
+  }
+
+  @media screen and (max-width: 699px) {
+    left: 88%;
+    top: 95%;
+    width: 20%;
+  }
 
   &:hover {
     cursor: pointer;

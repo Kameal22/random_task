@@ -14,6 +14,7 @@ import UserPost from "./UserPost";
 
 const UserPage: React.FC = () => {
     const [postCreating, setPostCreating] = useToggle(false);
+    const [loading, setLoading] = useToggle(true)
     const [posts, setPosts] = useState<Post[]>([]);
     const { id } = useParams();
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const UserPage: React.FC = () => {
     UseClickOutside(createPostRef, setPostCreating);
 
     useEffect(() => {
-        fetchPosts(API_URL, 'posts', setPosts)
+        fetchPosts(API_URL, 'posts', setPosts, setLoading)
     }, [])
 
     const addPostToState = (post: Post) => {
@@ -40,6 +41,7 @@ const UserPage: React.FC = () => {
         <UserPageDiv>
             <i onClick={() => navigate('/')} className="bi bi-arrow-left-square" />
             <UserDiv>
+                {loading && <h1>Loading</h1>}
                 <UserName>
                     {user?.name}
                 </UserName>

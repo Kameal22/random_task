@@ -17,6 +17,18 @@ export const CreatePostDiv = styled.div`
   box-shadow: 0px 8px 22px -2px rgba(66, 68, 90, 1);
   padding-top: 1vh;
 
+  @media screen and (max-width: 1150px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 999px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 699px) {
+    width: 95%;
+  }
+
   h1 {
     text-align: center;
     font-size: 1.8em;
@@ -79,6 +91,10 @@ export const ButtonsDiv = styled.div`
     }
 
     width: 22%;
+  }
+
+  @media screen and (max-width: 699px) {
+    width: 95%;
   }
 `;
 
