@@ -83,7 +83,7 @@ export const ButtonsDiv = styled.div`
 `;
 
 export const AddPostButton = styled.button`
-  background-color: green;
+  background-color: transparent;
   padding: 10px;
   color: ${({ theme }) => theme.textColor.button};
   border: ${({ theme }) => theme.border.button};
@@ -92,7 +92,7 @@ export const AddPostButton = styled.button`
 `;
 
 export const CancelButton = styled.button`
-  background-color: red;
+  background-color: transparent;
   padding: 10px;
   color: ${({ theme }) => theme.textColor.button};
   border: ${({ theme }) => theme.border.button};

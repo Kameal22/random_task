@@ -13,6 +13,10 @@ export const UserPostsDiv = styled.div`
     color: ${({ theme }) => theme.textColor.post};
     font-size: 0.9em;
     margin-left: 2em;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   button {

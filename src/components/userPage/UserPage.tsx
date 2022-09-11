@@ -26,6 +26,10 @@ const UserPage: React.FC = () => {
         fetchPosts(API_URL, 'posts', setPosts)
     }, [])
 
+    const addPostToState = (post: Post) => {
+        setPosts(prev => [...prev, post])
+    }
+
     const user = useSelector((state: RootState) => state.users.allUsers.find(user => {
         return user.id.toString() === id
     }));
@@ -42,13 +46,13 @@ const UserPage: React.FC = () => {
 
                 <UserPosts>
                     {userPosts.map(post => (
-                        <UserPost key={post.id} post={post} posts={posts} setPosts={setPosts} />
+                        <UserPost userId={id} key={post.id} post={post} posts={posts} setPosts={setPosts} />
                     ))}
                 </UserPosts>
             </UserDiv>
             <AddPostButton onClick={setPostCreating}>Add post</AddPostButton>
 
-            {postCreating && <CreatePost userId={user?.id} setPostCreating={setPostCreating} forwardRef={createPostRef} />}
+            {postCreating && <CreatePost addPostToState={addPostToState} userId={user?.id} setPostCreating={setPostCreating} forwardRef={createPostRef} />}
         </UserPageDiv>
 
     )

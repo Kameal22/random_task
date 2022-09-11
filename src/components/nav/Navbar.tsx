@@ -1,4 +1,3 @@
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { NavbarDiv } from "./styled/navbar.styled";
 
 interface Props {

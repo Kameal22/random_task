@@ -13,3 +13,9 @@ export const fetchPosts = async (URL: string, data: string, setPosts: React.Disp
 
     setPosts(response.data)
 };
+
+export const fetchSinglePosts = async (URL: string, data: string, id: string | undefined, setPost: React.Dispatch<React.SetStateAction<Post | undefined>>) => {
+    const response = await axios.get(`${URL}${data}/${id}`);
+
+    setPost(response.data)
+};
