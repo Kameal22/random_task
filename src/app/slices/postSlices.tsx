@@ -21,9 +21,12 @@ export const postsSlice = createSlice({
 
             state.allPosts = removed
         },
+        addPost: (state, action: PayloadAction<Post>) => {
+            state.allPosts.push(action.payload)
+        },
     }
 });
 
-export const { fetchUsersPosts, removePost } = postsSlice.actions;
+export const { fetchUsersPosts, removePost, addPost } = postsSlice.actions;
 
 export default postsSlice.reducer;

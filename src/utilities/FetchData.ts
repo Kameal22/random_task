@@ -5,9 +5,7 @@ import { User } from "../types/User";
 export const fetchUsers = async (URL: string, data: string, setUsers: (user: User) => void) => {
     const response = await axios.get(`${URL}${data}`);
 
-    response.data.forEach((user: User) => {
-        setUsers(user)
-    })
+    setUsers(response.data)
 };
 
 export const fetchPosts = async (URL: string, data: string, setPosts: React.Dispatch<React.SetStateAction<Post[]>>) => {

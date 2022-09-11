@@ -32,12 +32,6 @@ const UserPage: React.FC = () => {
 
     const userPosts = posts.filter(post => post.userId === user?.id)
 
-    const removePost = (id: string) => {
-        const removed = posts.filter(post => post.id !== id);
-
-        setPosts(removed);
-    }
-
     return (
         <UserPageDiv>
             <i onClick={() => navigate('/')} className="bi bi-arrow-left-square" />
@@ -48,7 +42,7 @@ const UserPage: React.FC = () => {
 
                 <UserPosts>
                     {userPosts.map(post => (
-                        <UserPost key={post.id} removePost={removePost} post={post} />
+                        <UserPost key={post.id} post={post} posts={posts} setPosts={setPosts} />
                     ))}
                 </UserPosts>
             </UserDiv>
