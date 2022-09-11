@@ -30,9 +30,9 @@ const UserPage: React.FC = () => {
         setPosts(prev => [...prev, post])
     }
 
-    const user = useSelector((state: RootState) => state.users.allUsers.find(user => {
+    const user = useSelector((state: RootState) => state.users.allUsers).slice(0, 8).find(user => {
         return user.id.toString() === id
-    }));
+    });
 
     const userPosts = posts.filter(post => post.userId === user?.id)
 

@@ -11,9 +11,6 @@ import Users from "../users/Users";
 
 const HomePage: React.FC = () => {
     const dispatch = useDispatch();
-
-    // ADD LOADING WHEN FETCHING INITIAL DATA!!!!!!!!!!!!!!
-
     const users = useSelector((state: RootState) => state.users.allUsers).slice(0, 8);
 
     const setUsers = (user: User) => {

@@ -24,6 +24,7 @@ export const UserPageDiv = styled.div`
 export const UserDiv = styled.div`
   width: 40%;
   height: 80vh;
+  background-color: ${({ theme }) => theme.background.user};
   border: ${({ theme }) => theme.border.user};
   border-radius: 10px;
   padding-top: 2vh;

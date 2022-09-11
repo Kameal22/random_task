@@ -6,7 +6,6 @@ import { useRef } from "react";
 import UseClickOutside from "../../hooks/useClickOutside";
 import { useNavigate } from "react-router-dom";
 import { deleteData } from "../../utilities/DeleteData";
-import { API_URL } from "../../constants/API_URL";
 
 interface Props {
     post: Post
