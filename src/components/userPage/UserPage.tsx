@@ -28,7 +28,7 @@ const UserPage: React.FC = () => {
     }, [])
 
     const addPostToState = (post: Post) => {
-        setPosts(prev => [...prev, post])
+        setPosts(prev => [post, ...prev])
     }
 
     const user = useSelector((state: RootState) => state.users.allUsers).slice(0, 8).find(user => {
